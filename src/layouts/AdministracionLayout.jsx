@@ -3,6 +3,7 @@ import { useNavigate, } from 'react-router-dom'
 import { Outlet } from 'react-router-dom';
 
 import AdministracionAside from '../components/administracion-section/AdministracionAside';
+import Header from '../components/header/Header';
 
 const Administracion = () => {
 
@@ -18,6 +19,7 @@ const Administracion = () => {
 
   return (
     <>
+
         <AdministracionAside />
         
         <div className='w-[80%] px-2 py-3'>

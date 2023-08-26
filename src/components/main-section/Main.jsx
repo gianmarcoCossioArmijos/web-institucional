@@ -1,11 +1,50 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import DefaultThumbnail from '../DefaultThumbnail'
+import { SlBookOpen } from "react-icons/sl";
+import Header from '../header/Header';
 
 const Main = ({ seccion }) => {
+  const [ input, setInput ] = useState();
+  const [ lista, setLista ] = useState({});
+
+  const handleChange = (event) => {
+
+      const input = event.target.value;
+      setInput(input);
+  }
+
+  const handleSubmit = (event) => {
+
+    event.preventDefault;
+    
+  }
+
   return (
     <>
+
+        <div className='buscardor-base'>
+
+          {JSON.stringify(input)}
+          
+          <form onSubmit={handleSubmit}>
+                <input
+                      type="text"
+                      className='buscador-search-base'
+                      onChange={handleChange}
+                      value={input}
+                      placeholder='Buscar por titulo...'/>
+
+                <input
+                      type="submit"
+                      className='buscardor-button-base'
+                      value="Buscar"/>
+          </form>
+
+        </div>
+
         {seccion.map(libro => {
             return (
               <Link
@@ -15,21 +54,23 @@ const Main = ({ seccion }) => {
 
                 <div className='libro-base'>
                   
-                  <div className='w-[250px] h-[250px] rounded-t-lg overflow-hidden'>
-                    {libro.imagen ? <img src={libro.imagen} className='libro-image'/> : <DefaultThumbnail />}
+                  <div className=' overflow-hidden'>
+                    {libro.imagen ? <img src={libro?.imagen} className='libro-image'/> : <DefaultThumbnail />}
                   </div>
 
-                  <span className='px-2 font-bold capitalize text-sm max-h-[40px] overflow-hidden truncate'>
+                  <span className='py-1 font-bold text-center capitalize text-[11px] overflow-hidden'>
                     {libro?.titulo}
                   </span>
 
-                  <hr />
-
-                  <p className='px-2 max-h-[40px] text-xs overflow-hidden'>
-                    {libro?.descripcion}
-                  </p>
+                  <Link to={`/detalles/${libro.id}/${libro.seccion}`}>
+                    <button className='libro-button-base'>
+                      <span>Ver mas</span>
+                      <SlBookOpen className='my-auto'/>
+                    </button>
+                  </Link>
 
                 </div>
+                
               </Link>
             )
           })

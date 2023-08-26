@@ -17,7 +17,7 @@ const PlataformaLibros = () => {
   return (
     <>
 
-      <Table list={plataforma}/>
+      <Table list={plataforma} />
 
     </>
   )

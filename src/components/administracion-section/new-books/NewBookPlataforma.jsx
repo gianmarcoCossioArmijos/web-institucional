@@ -44,6 +44,7 @@ const NewBookPlataforma = () => {
         url: "",
         seccion: "librosPlataforma"
       })
+      navigate("/plataformas");
   }
 
   return (

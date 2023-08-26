@@ -8,10 +8,6 @@ const BaseLayout = (props) => {
   return (
     <div className='layout-base'>
 
-        <Marquee />
-
-        <Header />
-
         <div className='children-layout-base'>
             {props.children}
         </div>

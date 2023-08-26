@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { useLogin } from '../hooks/useLogin.js'
-import { AuthContext } from '../context/AuthContext.jsx';
-
 import { Toaster, toast } from 'sonner';
 
 const Login = () => {
@@ -12,13 +10,12 @@ const Login = () => {
 
     const { getLogin } = useLogin();
     const navigate = useNavigate();
-    const { saveAuth } = useContext(AuthContext);
 
     useEffect(() => {
 
         if (isAuth === true) {
 
-            navigate("/administracion");
+            navigate("/plataforma-books");
         } else {
 
             navigate("/login");
@@ -35,18 +32,15 @@ const Login = () => {
     const hanldeSubmit = async (event) => {
 
         event.preventDefault();
-
         const response = await getLogin(usuario.dni, usuario.clave);
 
-        if (response === true) {
+        if (response) {
 
-            saveAuth(isAuth);
-            toast.success('Bienvenido al Panel de Control');
+            setUsuario({ dni: "", clave: ""});
+            navigate("/plataforma-books");
         } else {
 
             setUsuario({ dni: "", clave: ""});
-            toast.error('Bienvenido al Panel de Control');
-            navigate("/plataforma-books");
         }
     }
 

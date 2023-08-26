@@ -33,7 +33,18 @@ const NewBookEnfermeria = () => {
 
     event.preventDefault();
     await setEnfermeria(libro);
-    navigate("/enfermeria-books");
+    setLibro({
+      titulo: "",
+      autor: "",
+      editorial: "",
+      publicacion: "",
+      isbn: "",
+      descripcion: "",
+      imagen: "",
+      url: "",
+      seccion: "librosPlataforma"
+    })
+    navigate("/");
   }
 
   return (
@@ -130,7 +141,7 @@ const NewBookEnfermeria = () => {
                       className='input-base'
                       onChange={handleChange}
                       placeholder='Ingrese URL de la imagen del libro (Google Drive)'
-                      required/>
+                      />
               </label>
 
               <label>

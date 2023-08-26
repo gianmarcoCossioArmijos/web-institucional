@@ -6,7 +6,7 @@ const Footer = () => {
     <>
         <div className='footer-base'>
 
-          <div className='flex justify-evenly gap-4 text-[#050505]'>
+          <div className='flex justify-evenly gap-4 text-sm text-[#050505]'>
             <div className='flex flex-col gap-1'>
                 <span className='font-bold'>
                   Configuracion

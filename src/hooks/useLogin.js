@@ -1,5 +1,5 @@
 import { db } from '../services/firebase';
-import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js'
+import { getDocs, collection, query, where } from 'firebase/firestore/lite';
 
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';

@@ -33,7 +33,18 @@ const NewBookProduccion = () => {
 
     event.preventDefault();
     await setProduccion(libro);
-    navigate("/produccion-books");
+    setLibro({
+        titulo: "",
+        autor: "",
+        editorial: "",
+        publicacion: "",
+        isbn: "",
+        descripcion: "",
+        imagen: "",
+        url: "",
+        seccion: "librosPlataforma"
+      })
+      navigate("/produccion");
   }
 
   return (

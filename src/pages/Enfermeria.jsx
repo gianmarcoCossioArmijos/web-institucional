@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useEnfermeria } from '../hooks/useEnfermeria.js'
 
-import Aside from '../components/main-section/Aside.jsx'
 import Main from '../components/main-section/Main'
 
 const Enfermeria = () => {
@@ -17,8 +16,6 @@ const Enfermeria = () => {
 
   return (
     <>
-
-      <Aside />
 
       <div className='section-base'>
         <Main seccion={enfermeria}/>

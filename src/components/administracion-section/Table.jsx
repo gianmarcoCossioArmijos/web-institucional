@@ -1,12 +1,13 @@
-import React from 'react'
-
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { Toaster, toast } from 'sonner';
 
 import { db } from '../../services/firebase.js';
-import { doc, deleteDoc } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js'
+import { doc, deleteDoc } from 'firebase/firestore/lite';
+import { useNavigate } from 'react-router-dom';
 
 const Table = ({ list }) => {
+
+  const navigate = useNavigate();
 
   const handleclick = async(ref, id) => {
 

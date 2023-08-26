@@ -1,6 +1,5 @@
 import { db } from '../services/firebase';
-import { getDocs, addDoc, collection, query } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js'
-
+import { getDocs, addDoc, collection, query } from 'firebase/firestore/lite';
 export const useProduccion = () => {
 
     const reference = collection(db, "librosProduccion");

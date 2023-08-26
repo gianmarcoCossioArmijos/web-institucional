@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAsistencia } from '../hooks/useAsistencia'
 
-import Aside from '../components/main-section/Aside.jsx'
 import Main from '../components/main-section/Main'
 
 const Asistencia = () => {
@@ -17,8 +16,6 @@ const Asistencia = () => {
 
   return (
     <>
-
-      <Aside />
 
       <div className='section-base'>
         <Main seccion={asistencia}/>

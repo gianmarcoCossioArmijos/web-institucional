@@ -6,24 +6,58 @@
 
 @layer components {
 
+    .index-background {
+        background-image: url('./assets/cover.jpg');
+        background-size: cover;
+    }
+
+    .blur-base {
+        backdrop-filter: blur(12px);
+    }
+
+    .grid-libro {
+        display: grid;
+        grid-template-rows: 180px, 50px, 20px;
+        width: 180px;
+        height: 250px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .radius-rigth {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .radius-left {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .object-fill {
+        object-fit: fill;
+    }
+
     .first-color {
-        background-color: #050505;
+        background-color: #4355af;
+    }
+
+    .first-color-hover {
+        background-color: #3a4b9f;
     }
 
     .second-color {
-        background-color: #f7ea5a;
+        background-color: #7aa3d5;
     }
 
     .second-color-hover{
-        background-color: #eddf4c;;;
+        background-color: #6b95ca;
     }
     
     .third-color {
-        background-color: #f03a3a;
+        background-color: #ef2a2a;
     }
 
     .third-color-hover {
-        background-color: #e72d2d;
+        background-color: #ef2a2a;
     }
 
     .border-book {
@@ -47,14 +81,6 @@
         font-family: 'Nunito', sans-serif;
     }
 
-    .radius-l {
-        border-radius: 0.5rem 0 0 0.5rem;
-    }
-
-    .radius-r {
-        border-radius: 0 0.5rem 0.5rem 0;
-    }
-
     .aside-base {
         @apply w-[20%] aside-styles p-2 flex flex-col gap-1 bg-slate-300 min-h-[600px]
     }
@@ -72,7 +98,7 @@
     }
 
     .section-base {
-        @apply p-2 w-full flex flex-wrap justify-evenly gap-2
+        @apply p-2 max-w-[900px] mx-auto w-full flex flex-wrap justify-evenly gap-1
     }
 
     .page-base {
@@ -80,7 +106,7 @@
     }
 
     .header-base {
-      @apply  px-3 py-6 first-color flex justify-between content-center text-white;
+      @apply px-3 py-6 flex justify-between content-center second-color text-white
     }
 
     .logo-base {
@@ -100,15 +126,31 @@
       }
 
     .libro-base {
-        @apply w-[250px] min-h-[250px] h-[350px] max-h-[350px] flex flex-col overflow-hidden rounded-lg gap-1 shadow-md border-book hover:border-book-hover ease-in duration-[120ms] hover:box-shadow-hover
+        @apply w-[200px] h-[250px] p-1 flex flex-col justify-between overflow-hidden rounded-lg shadow-md border-book hover:border-book-hover ease-in duration-[120ms] hover:box-shadow-hover
     }
 
     .libro-image {
-        @apply w-full h-full rounded-t-lg hover:scale-[110%] ease-in duration-[120ms] overflow-hidden
+        @apply w-full h-[180px] hover:scale-[110%] ease-in duration-[120ms] overflow-hidden
+    }
+
+    .libro-button-base {
+        @apply py-1 w-full h-[25px] rounded-lg first-color text-white hover:text-black flex gap-2 justify-center text-[12px] hover:second-color-hover ease-in duration-200
     }
 
     .card-base {
         @apply w-[300px] min-h-[400px] p-2 flex flex-col rounded-lg gap-1 shadow-md
+    }
+
+    .buscardor-base {
+        @apply w-full h-[55px] py-2 px-4 my-4 flex justify-end rounded-lg shadow-md bg-slate-200
+    }
+
+    .buscador-search-base {
+        @apply shadow-md px-3 py-2 radius-left min-w-[100px]
+    }
+
+    .buscardor-button-base {
+        @apply px-4 py-2 third-color hover:third-color-hover text-white radius-rigth shadow-md
     }
 
     .form-base {
@@ -131,11 +173,23 @@
         @apply mt-4 mb-2 py-2 rounded-lg third-color hover:third-color-hover text-white ease-in duration-200 hover:shadow-md
     }
 
+    .detalles-button-base {
+        @apply w-full my-4 py-2 flex gap-2 justify-center rounded-lg first-color hover:second-color-hover text-white hover:text-black ease-in duration-200 hover:shadow-md
+    }
+
     .delete-button-base {
         @apply py-2 px-3 max-h-[32px] m-auto rounded-lg third-color text-white hover:third-color-hover ease-in duration-200
     }
 
     .marquee-base {
         @apply second-color py-2 text-[#050505]
+    }
+
+    .index-base {
+        @apply w-full min-h-[600px] p-2 flex flex-col gap-4 index-background
+    }
+
+    .career-base {
+        @apply w-[300px] h-[300px] p-3 second-color rounded-lg shadow-lg
     }
 }

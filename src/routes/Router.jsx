@@ -22,6 +22,8 @@ import NewBookAsistencia from '../components/administracion-section/new-books/Ne
 import NewBookProduccion from '../components/administracion-section/new-books/NewBookProduccion'
 import NewBookEnfermeria from '../components/administracion-section/new-books/NewBookEnfermeria'
 import NewBookPlataforma from '../components/administracion-section/new-books/NewBookPlataforma'
+import LibroDetalles from '../pages/LibroDetalles'
+import Index from '../pages/Index'
 
 const Router = () => {
   return (
@@ -43,15 +45,16 @@ const Router = () => {
                 <Route path='/asistencia-books' element={<AsistenciaLibros />} />
                 <Route path='/plataforma-books' element={<PlataformaLibros />} />
 
+                <Route path='/detalles/:id/:seccion' element={<LibroDetalles />} />
+                <Route path='/produccion' element={<Produccion />} />
+                <Route path='/plataformas' element={<Plataformas />} />
+                <Route path='/asistencia' element={<Asistencia />} />
+                <Route path='/enfermeria' element={<Enfermeria />} />
 
               </Route>
 
               <Route path='/login' element={<Login />} />
-              <Route path='/' element={<Enfermeria />} />
-              <Route path='/produccion' element={<Produccion />} />
-              <Route path='/plataformas' element={<Plataformas />} />
-              <Route path='/asistencia' element={<Asistencia />} />
-              <Route path='/login' element={<Login />} />
+              <Route path='/' element={<Index />} />
             
             </Routes>
           </BaseLayout>

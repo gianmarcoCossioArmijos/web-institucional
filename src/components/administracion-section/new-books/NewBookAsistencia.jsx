@@ -33,7 +33,18 @@ const NewBookAsistencia = () => {
 
     event.preventDefault();
     await setAsistencia(libro);
-    navigate("/asistencia-books");
+    setLibro({
+        titulo: "",
+        autor: "",
+        editorial: "",
+        publicacion: "",
+        isbn: "",
+        descripcion: "",
+        imagen: "",
+        url: "",
+        seccion: "librosPlataforma"
+      })
+      navigate("/asistencia");
   }
 
   return (
@@ -130,7 +141,7 @@ const NewBookAsistencia = () => {
                       className='input-base'
                       onChange={handleChange}
                       placeholder='Ingrese URL de la imagen del libro (Google Drive)'
-                      required/>
+                      />
               </label>
 
               <label>
