@@ -9,13 +9,13 @@ const Horario = () => {
           <table className='w-full border shadow-lg text-sm'>
 
             <thead>
-              <tr>
-                <th>Hora</th>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miercoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
+              <tr className='third-color text-white'>
+                <th className='p-2'>Hora</th>
+                <th className='p-2'>Lunes</th>
+                <th className='p-2'>Martes</th>
+                <th className='p-2'>Miercoles</th>
+                <th className='p-2'>Jueves</th>
+                <th className='p-2'>Viernes</th>
               </tr>
               </thead>
 
@@ -23,16 +23,17 @@ const Horario = () => {
 
                   {horario.map(hora => {
                     return (
-
-                      <tr>
-                        <th>{hora.hora}</th>
-                        <th>{hora.lunes ? hora.lunes : "Libre"}</th>
-                        <th>{hora.martes ? hora.martes : "Libre"}</th>
-                        <th>{hora.miercoles ? hora.miercoles : "Libre"}</th>
-                        <th>{hora.jueves ? hora.jueves : "Libre"}</th>
-                        <th>{hora.viernes ? hora.viernes : "Libre"}</th>
-                      </tr>
-
+                      <>
+                        <tr>
+                          <th className='p-2'>{hora.hora}<hr /></th>
+                          <th className='p-2'>{hora.lunes ? hora.lunes : "Libre"}<hr /></th>
+                          <th className='p-2'>{hora.martes ? hora.martes : "Libre"}<hr /></th>
+                          <th className='p-2'>{hora.miercoles ? hora.miercoles : "Libre"}<hr /></th>
+                          <th className='p-2'>{hora.jueves ? hora.jueves : "Libre"}<hr /></th>
+                          <th className='p-2'>{hora.viernes ? hora.viernes : "Libre"}<hr /></th>
+                        </tr>
+                        
+                      </>
                     )
                   })}
 
