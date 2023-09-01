@@ -6,7 +6,7 @@ import { addNewUsuario, cleanCurrentUser } from '../store/aside/usuarios/usuario
 
 export const useLogin = () => {
 
-    const reference = collection(db, "usuariosAdministrativos");
+    const reference = collection(db, "usuarios");
     const dispatch = useDispatch();
 
     const getLogin = async( dni, clave) => {
@@ -22,13 +22,20 @@ export const useLogin = () => {
             })
         });
 
-        const response = results.map(usuario => (usuario.clave === clave) ? dispatch(addNewUsuario(usuario)) : "");
+        const response = results.map(usuario => {
+            
+            if (usuario.clave === clave) {
+                dispatch(addNewUsuario(usuario))
+                localStorage.setItem("rol", usuario.rol)
+            }
+        })
         console.log(response);
     }
 
     const Logout = () => {
 
         dispatch(cleanCurrentUser());
+        localStorage.removeItem("rol")
     }
 
     return {

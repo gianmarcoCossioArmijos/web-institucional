@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
 import { FiLogOut } from "react-icons/fi";
@@ -15,9 +15,16 @@ const AdministracionAside = () => {
 
   const aside = useSelector((state) => state.asideMenu);
   const usuario = useSelector((state) => state.usuariosSlice);
+  const [ rol, setRol ] = useState(localStorage.getItem("rol") || null);
 
     const { Logout } = useLogin();
     const navigate = useNavigate();
+
+    useEffect(() => {
+
+      const rol = localStorage.getItem("rol");
+      setRol(rol);
+    }, [usuario])
 
     const handleOnClick = () => {
 
@@ -33,7 +40,7 @@ const AdministracionAside = () => {
 
         <BibliotecaAside />
 
-        {usuario.rol === "administrador" ? <BibliotecaAdministracionAside /> : "" }
+        {rol === "administrador" ? <BibliotecaAdministracionAside /> : "" }
 
         <button
             onClick={handleOnClick}

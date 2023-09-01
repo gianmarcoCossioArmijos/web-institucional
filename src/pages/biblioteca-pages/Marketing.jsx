@@ -10,7 +10,7 @@ const Marketing = () => {
 
   useEffect(() => {
 
-    getAsistencia()
+    getBooks()
       .then(setLibros)
   }, [])
 

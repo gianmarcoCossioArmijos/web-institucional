@@ -11,7 +11,7 @@ const Notas = () => {
             {cursos.map(curso => {
                 return (
 
-                    <div className='w-full w-4/5 sm:w-3/5 md:w-2/5 h-[200px] p-3 flex flex-col gap-2 justify-between bg-slate-100 rounded-lg shadow-lg'>
+                    <div className='w-4/5 sm:w-3/5 md:w-2/5 lg:w-1/5 h-[200px] p-3 flex flex-col gap-2 justify-between bg-slate-100 rounded-lg shadow-lg'>
 
                         <div className='w-full h-1/3 flex text-2xl text-center font-bold rounded-lg'>
                             <h5 className='w-full self-center'>{curso.nombre}</h5>

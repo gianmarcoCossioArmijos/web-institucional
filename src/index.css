@@ -273,7 +273,7 @@
 
      /* Estilos Base de Boton */
     .button-base {
-        @apply mt-4 mb-2 py-2 rounded-lg third-color hover:third-color-hover text-white ease-in duration-200 hover:shadow-md
+        @apply mt-4 mb-2 p-2 rounded-lg third-color hover:third-color-hover text-white ease-in duration-200 hover:shadow-md
     }
 
      /* Estilos Index */
@@ -300,5 +300,10 @@
 
     .login-card-base {
         @apply w-3/4 sm:w-3/5 md:w-2/5 lg:w-[400px] h-fit p-3 m-auto rounded-lg flex flex-col gap-4 bg-white shadow-lg
+    }
+
+    /* Estilos Usuarios */
+    .edit-button-base {
+        @apply py-2 px-3 max-h-[32px] m-auto rounded-lg first-color text-white hover:first-color-hover ease-in duration-200
     }
 }

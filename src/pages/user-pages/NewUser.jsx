@@ -3,8 +3,14 @@ import React, { useState } from 'react'
 import { FiSave } from "react-icons/fi";
 import { toast } from 'sonner';
 
+import { useUsuario } from '../../hooks/useUsuario.js';
+import { useNavigate } from 'react-router-dom';
+
 const NewUser = () => {
 
+  const { setNewUsuario } = useUsuario();
+  const navigate = useNavigate();
+ 
     const [usuario, setUsuario] = useState({
         nombre: "",
         dni: "",
@@ -16,11 +22,14 @@ const NewUser = () => {
 
         const value = event.target.value;
         const name = event.target.name;
-        setLibro({...libro, [name]: value})
+        setUsuario({...usuario, [name]: value})
     }
 
-    const hanldeSubmit = () => {
+    const hanldeSubmit = (event) => {
 
+      event.preventDefault();
+      setNewUsuario(usuario);
+      navigate("/usuarios-list");
     }
 
   return (
@@ -35,8 +44,10 @@ const NewUser = () => {
                   Nombre
                   <input
                       type="text"
-                      name='titulo'
+                      name='nombre'
+                      value={usuario?.nombre}
                       className='input-base'
+                      placeholder='Ingresar Nombre'
                       onChange={handleChange}
                       required/>
               </label>
@@ -46,7 +57,9 @@ const NewUser = () => {
                   <input
                       type="number"
                       name='dni'
+                      value={usuario?.dni}
                       className='input-base'
+                      placeholder='Ingresar DNI'
                       onChange={handleChange}
                       required/>
               </label>
@@ -56,24 +69,30 @@ const NewUser = () => {
                   <input
                       type="password"
                       name='clave'
+                      value={usuario?.clave}
                       className='input-base'
+                      placeholder='Ingresar Clave'
                       onChange={handleChange}
                       />
               </label>
 
               <label>
                   Rol
-                  <select className='input-base'>
-                    <option value="usuario">Usuario</option>
-                    <option value="administrador">Administrador</option>
-                  </select>
+                  <input
+                      type="text"
+                      name='rol'
+                      value={usuario?.rol}
+                      className='input-base'
+                      placeholder='Ingresar Rol: administrador o usuario'
+                      onChange={handleChange}
+                      />
               </label>
               
               <button
                   type="submit"
                   value="Registrar"
                   className='button-base w-full'
-                  onClick={() => toast.success('Libro guardado exitosamente')}
+                  onClick={() => toast.success('Usuario guardado exitosamente')}
                   >
                     <FiSave className='icon-base mx-auto'/>
               </button>

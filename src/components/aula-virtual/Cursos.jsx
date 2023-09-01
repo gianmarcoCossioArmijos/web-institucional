@@ -27,7 +27,7 @@ const Cursos = () => {
 
                         <hr />
                     
-                        <div className='flex justify-between font-bold'>
+                        <div className='flex justify-between'>
                             <span>{curso.docente}</span>
                             <span>{curso.aula}</span>
                         </div>
