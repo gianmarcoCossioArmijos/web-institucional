@@ -16,8 +16,10 @@ const Login = () => {
 
     useEffect(() => {
 
-        if (user) {
-            navigate("/cursos");
+        setUsuario(user);
+
+        if (!usuario) {
+            navigate("/login");
         }
     }, [])
 
