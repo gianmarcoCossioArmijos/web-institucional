@@ -5,7 +5,7 @@ export const useEnfermeria = () => {
 
     const reference = collection(db, "librosEnfermeria");
 
-    const getEnfermeria = async() => {
+    const getBooks = async() => {
 
         const q = query(reference);
         const data = await getDocs(q);
@@ -22,13 +22,13 @@ export const useEnfermeria = () => {
         return results;
     }
 
-    const setEnfermeria = async(libro) => {
+    const setBook = async(libro) => {
 
         await addDoc(reference, libro)
     }
 
     return {
-        getEnfermeria,
-        setEnfermeria
+        getBooks,
+        setBook
     }
 }

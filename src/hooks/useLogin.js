@@ -1,14 +1,13 @@
 import { db } from '../services/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore/lite';
 
-import { AuthContext } from '../context/AuthContext';
-import { useContext } from 'react';
+import { useDispatch } from "react-redux"
+import { addNewUsuario, cleanCurrentUser } from '../store/aside/usuarios/usuariosSlice';
 
 export const useLogin = () => {
-    
-    const { saveAuth, cleanAuth } = useContext(AuthContext);
 
     const reference = collection(db, "usuariosAdministrativos");
+    const dispatch = useDispatch();
 
     const getLogin = async( dni, clave) => {
 
@@ -23,13 +22,13 @@ export const useLogin = () => {
             })
         });
 
-        const response = results.map(obj => (obj.clave === clave) ? saveAuth(true) : saveAuth(false))
-        return response
+        const response = results.map(usuario => (usuario.clave === clave) ? dispatch(addNewUsuario(usuario)) : "");
+        console.log(response);
     }
 
     const Logout = () => {
 
-        cleanAuth();
+        dispatch(cleanCurrentUser());
     }
 
     return {

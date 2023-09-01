@@ -6,15 +6,87 @@
 
 @layer components {
 
+    /* Estilos Personalizados */
+
+    /* Backgrounds personalizados */
     .index-background {
         background-image: url('./assets/cover.jpg');
         background-size: cover;
+        background-position: right 35% bottom 75%;
     }
 
+    .informatica-cover {
+        background-image: url('./assets/informatic-cover.jpg');
+        background-size: cover;
+        background-position: right 25% bottom 75%;
+    }
+
+    .nursing-cover {
+        background-image: url('./assets/nursing-cover.jpg');
+        background-size: cover;
+        background-position: right 35% bottom 75%;
+    }
+
+    .marketing-cover {
+        background-image: url('./assets/marketing-cover.jpg');
+        background-size: cover;
+        background-position: right 35% bottom 75%;
+    }
+
+    .graphic-cover {
+        background-image: url('./assets/grafico.jpg');
+        background-size: cover;
+        background-position: right 45% bottom 80%;
+    }
+
+    .audiovisual-cover {
+        background-image: url('./assets/audiovisual-cover.jpg');
+        background-size: cover;
+        background-position: right 35% bottom 80%;
+    }
+
+    .banking-cover {
+        background-image: url('./assets/banking-cover.jpg');
+        background-size: cover;
+        background-position: right 55% bottom 80%;
+    }
+
+    .informatica-background {
+        background-image: url('./assets/informatic.jpg');
+        background-size: cover;
+    }
+
+    .marketing-background {
+        background-image: url('./assets/marketing.jpg');
+        background-size: cover;
+    }
+
+    .enfermeria-background {
+        background-image: url('./assets/nursing.jpg');
+        background-size: cover;
+    }
+
+    .diseño-background {
+        background-image: url('./assets/graphic.jpg');
+        background-size: cover;
+    }
+
+    .audiovisual-background {
+        background-image: url('./assets/audiovisual.jpg');
+        background-size: cover;
+    }
+
+    .banking-background {
+        background-image: url('./assets/banking.jpg');
+        background-size: cover;
+    }
+
+    /* Blur Personalizado */
     .blur-base {
         backdrop-filter: blur(12px);
     }
 
+    /* Grid Personalizado */
     .grid-libro {
         display: grid;
         grid-template-rows: 180px, 50px, 20px;
@@ -24,6 +96,7 @@
         margin: 5px;
     }
 
+    /* Border Radius Personalizados */
     .radius-rigth {
         border-radius: 0 8px 8px 0;
     }
@@ -32,10 +105,12 @@
         border-radius: 8px 0 0 8px;
     }
 
+    /* Object fit Personalizado */
     .object-fill {
         object-fit: fill;
     }
 
+    /* Background Color Personalizados */
     .first-color {
         background-color: #4355af;
     }
@@ -57,7 +132,11 @@
     }
 
     .third-color-hover {
-        background-color: #ef2a2a;
+        background-color: #db2626;
+    }
+
+    .fourth-color {
+        background-color: #afa338;
     }
 
     .border-book {
@@ -68,43 +147,51 @@
         border: 1.5px solid #f7ea5a;
     }
 
+    /* Box Shadow Personalizado */
     .box-shadow-hover {
         box-shadow: 0 10px 15px -3px rgb(255, 244, 122), 0 4px 6px -4px rgb(247, 234, 90);
     }
 
-    .aside-styles {
-        width: 20%;
-        min-width: 200px;
-      }
-
+    /* Fuente Personalizada */
     .font-base {
         font-family: 'Nunito', sans-serif;
     }
 
+    /* Estilos base por componente*/
+
+    /* Estilos Aside */
     .aside-base {
-        @apply w-[20%] aside-styles p-2 flex flex-col gap-1 bg-slate-300 min-h-[600px]
+        @apply min-h-full p-2 flex flex-col bg-slate-300 absolute
+    }
+
+    .menu {
+        @apply left-0 bottom-[110%]
     }
 
     .aside-link-base {
         @apply px-2 py-2 text-sm rounded-lg hover:bg-slate-200
     }
 
+    /* Estilos Layout */
     .layout-base {
         @apply min-h-[600px]
     }
     
     .children-layout-base {
-        @apply bg-white flex
+        @apply bg-white
     }
 
+    /* Estilos Section */
     .section-base {
-        @apply p-2 max-w-[900px] mx-auto w-full flex flex-wrap justify-evenly gap-1
+        @apply w-full min-h-screen p-2 flex flex-wrap justify-evenly content-start gap-1
     }
 
+    /* Estilos Page */
     .page-base {
         @apply p-2 my-2 flex w-full h-full
     }
 
+    /* Estilos Header */
     .header-base {
       @apply px-3 py-6 flex justify-between content-center second-color text-white
     }
@@ -117,14 +204,17 @@
         @apply w-[50px] h-[50px] rounded-full
     }
 
+    /* Estilos iconos */
     .icon-base {
         @apply w-[25px] h-[25px]
     }
 
+    /* Estilos Footer */
     .footer-base {
-        @apply pt-8 pb-4 flex flex-col gap-4 text-center text-slate-400 second-color;
+        @apply py-20 flex justify-evenly first-color text-lg text-left text-white;
       }
 
+      /* Estilos Libro */
     .libro-base {
         @apply w-[200px] h-[250px] p-1 flex flex-col justify-between overflow-hidden rounded-lg shadow-md border-book hover:border-book-hover ease-in duration-[120ms] hover:box-shadow-hover
     }
@@ -134,13 +224,14 @@
     }
 
     .libro-button-base {
-        @apply py-1 w-full h-[25px] rounded-lg first-color text-white hover:text-black flex gap-2 justify-center text-[12px] hover:second-color-hover ease-in duration-200
+        @apply py-1 w-full h-[25px] rounded-lg first-color text-white flex gap-2 justify-center text-[12px] hover:fourth-color ease-in duration-200
     }
 
     .card-base {
         @apply w-[300px] min-h-[400px] p-2 flex flex-col rounded-lg gap-1 shadow-md
     }
 
+    /* Estilos Buscador de libros */
     .buscardor-base {
         @apply w-full h-[55px] py-2 px-4 my-4 flex justify-end rounded-lg shadow-md bg-slate-200
     }
@@ -153,10 +244,21 @@
         @apply px-4 py-2 third-color hover:third-color-hover text-white radius-rigth shadow-md
     }
 
+
+    /* Estilos Formulario de Libros */
     .form-base {
         @apply w-[600px] min-w-[300px] p-3 flex flex-col rounded-lg gap-1 shadow-md
     }
 
+    .input-base {
+        @apply py-2 px-3 mb-4 w-full rounded-lg bg-slate-200 
+    }
+
+    .detalles-button-base {
+        @apply w-full my-4 py-2 flex gap-2 justify-center rounded-lg first-color hover:fourth-color text-white ease-in duration-200 hover:shadow-md
+    }
+
+    /* Estilos Lista de Reporte de Libros */
     .table-base {
         @apply min-w-[300px] max-w-[1000px] p-3 flex flex-col rounded-lg gap-1 shadow-md
     }
@@ -165,31 +267,38 @@
         @apply w-full flex gap-1 text-left self-center
     }
 
-    .input-base {
-        @apply py-2 px-3 mb-4 w-full rounded-lg bg-slate-200 
-    }
-
-    .button-base {
-        @apply mt-4 mb-2 py-2 rounded-lg third-color hover:third-color-hover text-white ease-in duration-200 hover:shadow-md
-    }
-
-    .detalles-button-base {
-        @apply w-full my-4 py-2 flex gap-2 justify-center rounded-lg first-color hover:second-color-hover text-white hover:text-black ease-in duration-200 hover:shadow-md
-    }
-
     .delete-button-base {
         @apply py-2 px-3 max-h-[32px] m-auto rounded-lg third-color text-white hover:third-color-hover ease-in duration-200
     }
 
-    .marquee-base {
-        @apply second-color py-2 text-[#050505]
+     /* Estilos Base de Boton */
+    .button-base {
+        @apply mt-4 mb-2 py-2 rounded-lg third-color hover:third-color-hover text-white ease-in duration-200 hover:shadow-md
     }
 
+     /* Estilos Index */
     .index-base {
-        @apply w-full min-h-[600px] p-2 flex flex-col gap-4 index-background
+        @apply w-full min-h-[600px] flex flex-col
     }
 
     .career-base {
-        @apply w-[300px] h-[300px] p-3 second-color rounded-lg shadow-lg
+        @apply w-full h-[500px] md:w-3/4 lg:w-1/2 md:mx-auto relative flex overflow-hidden flex-col justify-center text-white
+    }
+
+    .hero-title-base {
+        @apply w-full lg:w-1/2 h-[500px] flex justify-center text-4xl sm:text-5xl uppercase font-bold text-white
+    }
+
+    .hero-form-base {
+        @apply mx-2 md:w-3/4 lg:w-[450px] md:mx-auto px-6 py-10 bg-white/20 rounded-lg blur-base shadow-lg animate-fade-left animate-ease-linear
+    }
+
+    /* Estilos Login */
+    .login-base {
+        @apply w-full min-h-screen flex flex-col justify-center
+    }
+
+    .login-card-base {
+        @apply w-3/4 sm:w-3/5 md:w-2/5 lg:w-[400px] h-fit p-3 m-auto rounded-lg flex flex-col gap-4 bg-white shadow-lg
     }
 }

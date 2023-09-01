@@ -1,30 +1,63 @@
-import React from 'react'
-import { ImBook } from "react-icons/im";
-import { GoHomeFill } from "react-icons/go";
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux"
+import { showAsideMenu, hideAsideMenu } from '../../store/aside/asideSlice';
 
-const Header = () => {
+import { AiOutlineMenuUnfold } from "react-icons/ai";
+
+const Header = ({ bg, auth }) => {
+
+  const dispatch = useDispatch();
+  const aside = useSelector((state) => state.asideMenu);
+  const usuario = useSelector((state) => state.usuariosSlice);
+
+  const handleClick = () => {
+
+    if (aside === "") {
+
+      dispatch(showAsideMenu());
+    } else {
+
+      dispatch(hideAsideMenu());
+    }
+  }
+
   return (
-    <>
-        <header className='header-base'>
+    <header className={`w-full p-3 flex justify-between ${bg? bg : ""} gap-4 text-white`}>
 
-            <div className='flex gap-4'>
-                <div className='self-center'>
-                    <ImBook className='logo-base text-[#f03a3a]'/>
-                </div>
+        <Link to="/" className="my-auto font-bold text-xl sm:text-2xl self-center">
+            <h1>
+                EduApp
+            </h1>
+        </Link>
 
-                <div className='flex flex-col self-center'>
-                    <span className='font-bold text-lg'>Institucion Educativa</span>
-                </div>
-            </div>
+        { usuario ? (
+          <div className='flex gap-4'>
 
-            <Link to="/" className='flex'>
-                <GoHomeFill className='logo-base self-center text-[#f03a3a]'/>
+            <Link to="/" className='my-auto hover:underline'>
+              Inicio
             </Link>
 
-        </header>
-    </>
+            <Link to="/login" className='my-auto hover:underline'>
+              Aula Virtual
+            </Link>
+
+            <button
+                  onClick={() => handleClick()}
+                  className='p-2 my-auto third-color hover:third-color-hover rounded-lg'>
+              <AiOutlineMenuUnfold />
+            </button>
+
+          </div>
+        ) : (
+
+          <Link to="/login" className='my-auto hover:underline'>
+            Aula Virtual
+          </Link>
+        )}
+
+    </header>
   )
 }
 

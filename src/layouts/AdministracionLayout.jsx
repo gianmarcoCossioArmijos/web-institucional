@@ -5,27 +5,33 @@ import { Outlet } from 'react-router-dom';
 import AdministracionAside from '../components/administracion-section/AdministracionAside';
 import Header from '../components/header/Header';
 
+import { useSelector } from 'react-redux';
+
 const Administracion = () => {
 
-  const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem('auth')) || false);
-    const navigate = useNavigate();
+  const usuario = useSelector((state) => state.usuariosSlice);
+  const navigate = useNavigate();
 
     useEffect(() => {
 
-        if (isAuth === false) {
+        if (!usuario) {
             navigate("/login");
         }
     }, [])
 
   return (
-    <>
+    <div className='login-base'>
 
-        <AdministracionAside />
-        
-        <div className='w-[80%] px-2 py-3'>
+        <Header bg="first-color"/>
+
+        <div className='w-full flex relative'>
+          
+          <AdministracionAside />
+          
           <Outlet className=''/>
+
         </div>
-    </>
+    </div>
   )
 }
 

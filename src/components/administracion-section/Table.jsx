@@ -1,5 +1,5 @@
 import { BsFillTrash3Fill } from "react-icons/bs";
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 import { db } from '../../services/firebase.js';
 import { doc, deleteDoc } from 'firebase/firestore/lite';
@@ -17,12 +17,7 @@ const Table = ({ list }) => {
 
   return (
 
-    <div className='table-base'>
-
-      <Toaster 
-            position="bottom-right"
-            richColors
-            closeButton/>
+    <div className='section-base overflow-scroll'>
 
             <div className='table-row-base text-xs'>
 
@@ -30,9 +25,9 @@ const Table = ({ list }) => {
             <span className='w-2/12 font-bold overflow-hidden'>Titulo</span>
             <span className='w-1/12 font-bold overflow-hidden'>Autor</span>
             <span className='w-3/12 font-bold overflow-hidden'>Imagen</span>
-            <span className='w-1/12 font-bold overflow-hidden'>Descripcion</span>
+            <span className='w-1/12 font-bold overflow-hidden'>Desc.</span>
             <span className='w-3/12 font-bold overflow-hidden'>URL</span>
-            <span className='w-1/12 font-bold overflow-hidden' >Opciones</span>
+            <span className='w-1/12 font-bold overflow-hidden' >Accion</span>
             </div>
             <hr/>
 
@@ -58,7 +53,7 @@ const Table = ({ list }) => {
                       </button>
 
                     </div>
-                    <hr/>
+                    <hr className="w-full border-slate-200"/>
                 </>
                 )
             })

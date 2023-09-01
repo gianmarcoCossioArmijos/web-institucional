@@ -4,20 +4,20 @@ import { useEnfermeria } from '../../hooks/useEnfermeria'
 import Table from './Table';
 
 const EnfermeriaLibros = () => {
-  const [enfermeria, setEnfermeria] = useState([]);
+  const [libros, setLibros] = useState([]);
 
-  const { getEnfermeria } = useEnfermeria();
+  const { getBooks } = useEnfermeria();
 
   useEffect(() => {
 
-    getEnfermeria()
-      .then(setEnfermeria)
+    getBooks()
+      .then(setLibros)
   }, [])
 
   return (
     <>
 
-      <Table list={enfermeria}/>
+      <Table list={libros}/>
 
     </>
   )

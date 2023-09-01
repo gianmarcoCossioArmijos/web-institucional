@@ -44,7 +44,7 @@ const NewBookEnfermeria = () => {
       url: "",
       seccion: "librosPlataforma"
     })
-    navigate("/");
+    navigate("/enfermeria-books");
   }
 
   return (
