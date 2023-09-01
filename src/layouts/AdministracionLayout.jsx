@@ -24,7 +24,7 @@ const Administracion = () => {
 
         <Header bg="first-color"/>
 
-        <div className='w-full flex relative'>
+        <div className='w-full flex'>
           
           <AdministracionAside />
           

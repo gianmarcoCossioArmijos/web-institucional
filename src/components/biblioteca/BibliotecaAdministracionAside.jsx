@@ -10,7 +10,7 @@ const BibliotecaAdministracionAside = () => {
         <div className='aside-link-base'>
             <Link to="/enfermeria-list">
 
-            <h6 className='self-center w-full'>Lista de Enfermeria</h6>
+            <h6 className='self-center w-full'>Textos de Enfermeria</h6>
 
             </Link>
         </div>
@@ -18,7 +18,7 @@ const BibliotecaAdministracionAside = () => {
         <div className='aside-link-base'>
             <Link to="/grafico-list">
 
-            <h6 className='self-center w-full'>Lista de Diseño Grafico</h6>
+            <h6 className='self-center w-full'>Textos de Diseño Grafico</h6>
 
             </Link>
         </div>
@@ -26,7 +26,7 @@ const BibliotecaAdministracionAside = () => {
         <div className='aside-link-base'>
             <Link to="/marketing-list">
 
-            <h6 className='self-center w-full'>Lista de Marketing</h6>
+            <h6 className='self-center w-full'>Textos de Marketing</h6>
 
             </Link>
         </div>
@@ -34,7 +34,7 @@ const BibliotecaAdministracionAside = () => {
         <div className='aside-link-base'>
             <Link to="/informatica-list">
 
-            <h6 className='self-center w-full'>Lista de Informatica</h6>
+            <h6 className='self-center w-full'>Textos de Informatica</h6>
 
             </Link>
         </div>
@@ -50,17 +50,17 @@ const BibliotecaAdministracionAside = () => {
         </div>
 
         <div className='aside-link-base'>
-            <Link to="/new-marketing">
+            <Link to="/new-grafico">
 
-            <h6 className='aelf-center w-full'>Nuevo Texto de Marketing</h6>
+            <h6 className='aelf-center w-full'>Nuevo Texto de Diseño Grafico</h6>
 
             </Link>
         </div>
 
         <div className='aside-link-base'>
-            <Link to="/new-grafico">
+            <Link to="/new-marketing">
 
-            <h6 className='aelf-center w-full'>Nuevo Texto de Diseño Grafico</h6>
+            <h6 className='aelf-center w-full'>Nuevo Texto de Marketing</h6>
 
             </Link>
         </div>

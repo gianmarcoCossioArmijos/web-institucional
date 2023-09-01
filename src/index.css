@@ -304,6 +304,6 @@
 
     /* Estilos Usuarios */
     .edit-button-base {
-        @apply py-2 px-3 max-h-[32px] m-auto rounded-lg first-color text-white hover:first-color-hover ease-in duration-200
+        @apply py-2 px-3 max-h-[32px] m-auto rounded-lg first-color text-white hover:first-color ease-in duration-200
     }
 }

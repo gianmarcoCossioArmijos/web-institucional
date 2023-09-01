@@ -42,6 +42,7 @@ import Sesiones from '../components/aula-virtual/Sesiones'
 import DetalleTareas from '../components/aula-virtual/DetalleTareas'
 import NewUser from '../pages/user-pages/NewUser'
 import Users from '../pages/user-pages/Users'
+import EditUSer from '../pages/user-pages/EditUSer'
 
 const Router = () => {
   return (
@@ -79,6 +80,7 @@ const Router = () => {
 
                     <Route path='/new-user' element={<NewUser />} />
                     <Route path='/users-list' element={<Users />} />
+                    <Route path='/edit-user' element={<EditUSer />} />
 
                   </Route>
 

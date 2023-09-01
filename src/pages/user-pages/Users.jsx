@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
+import { db } from '../../services/firebase.js';
+import { doc, deleteDoc } from 'firebase/firestore/lite';
+
 import { useUsuario } from '../../hooks/useUsuario.js';
+import { toast } from 'sonner';
+import { useDispatch } from "react-redux"
+import { editUsuario } from '../../store/aside/usuario-firebase/usuarioFirebaseSlice.js';
+import { useNavigate } from 'react-router-dom';
 
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { HiPencilAlt } from "react-icons/hi";
@@ -9,12 +16,34 @@ const Users = () => {
   const [ usuarios, setUsuarios] = useState([])
 
   const { getUsuarios } = useUsuario();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
 
     getUsuarios()
       .then(setUsuarios)
   }, [])
+
+  useEffect(() => {
+
+    getUsuarios()
+      .then(setUsuarios)
+  }, [usuarios])
+
+  const handleclick = async(ref, id) => {
+
+    await deleteDoc(doc(db, ref, id));
+    toast.error('Usuario eliminado exitosamente');
+    getUsuarios()
+      .then(setUsuarios);
+  }
+
+  const handleEdit = (user) => {
+
+    dispatch(editUsuario(user));
+    navigate("/edit-user");
+  }
 
   return (
     <div className='section-base overflow-scroll'>
@@ -30,8 +59,6 @@ const Users = () => {
 
         </div>
 
-        <div className='w-full'>
-
           {usuarios.map(usuario => {
             return (
 
@@ -45,11 +72,15 @@ const Users = () => {
                   <span className='w-1/6 overflow-hidden'>{usuario.clave}</span>
                   <span className='w-1/6 overflow-hidden'>{usuario.rol}</span>
                   <div className='w-1/6 flex'>
-                    <button className='delete-button-base'>
+                    <button
+                          onClick={() => handleclick("usuarios", usuario.id)}
+                          className='delete-button-base'>
                       <BsFillTrash3Fill className='m-auto'/>
                     </button>
 
-                    <button className='edit-button-base'>
+                    <button
+                          onClick={() => handleEdit(usuario)}
+                          className='edit-button-base'>
                       <HiPencilAlt className='m-auto'/>
                     </button>
                   </div>
@@ -61,8 +92,6 @@ const Users = () => {
               </>
             )
           })}
-
-        </div>
 
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from "react-redux"
@@ -11,6 +11,13 @@ const Header = ({ bg, auth }) => {
   const dispatch = useDispatch();
   const aside = useSelector((state) => state.asideMenu);
   const usuario = useSelector((state) => state.usuariosSlice);
+  const [ rol, setRol ] = useState(localStorage.getItem("rol") || null);
+
+  useEffect(() => {
+
+    const rol = localStorage.getItem("rol");
+    setRol(rol);
+  }, [usuario])
 
   const handleClick = () => {
 
@@ -32,7 +39,7 @@ const Header = ({ bg, auth }) => {
             </h1>
         </Link>
 
-        { usuario ? (
+        { rol ? (
           <div className='flex gap-4'>
 
             <Link to="/" className='my-auto hover:underline'>

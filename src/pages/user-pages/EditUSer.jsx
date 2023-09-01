@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { FiSave } from "react-icons/fi";
+import { db } from '../../services/firebase.js';
+import { doc, updateDoc } from 'firebase/firestore/lite';
+
+import { HiPencilAlt } from "react-icons/hi";
 import { toast } from 'sonner';
 
-import { useUsuario } from '../../hooks/useUsuario.js';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux"
+const EditUSer = () => {
 
-const NewUser = () => {
-
-  const { setNewUsuario } = useUsuario();
   const navigate = useNavigate();
- 
-    const [usuario, setUsuario] = useState({
-        nombre: "",
-        dni: "",
-        clave: "",
-        rol: ""
-    });
+  const user = useSelector((state) => state.usuarioFirebaseSlice);
+  const [ usuario, setUsuario ] = useState(user);
 
     const handleChange = (event) => {
 
@@ -25,11 +21,20 @@ const NewUser = () => {
         setUsuario({...usuario, [name]: value})
     }
 
-    const hanldeSubmit = (event) => {
+    const hanldeSubmit = async (event) => {
 
       event.preventDefault();
-      setNewUsuario(usuario);
-      toast.success('Usuario registrado');
+      const newUser = {
+
+        nombre: usuario.nombre,
+        dni: usuario.dni,
+        clave: usuario.clave,
+        rol: usuario.rol
+    }
+
+      await updateDoc(doc(db, "usuarios", usuario.id), newUser);
+
+      toast.success('Usuario editado');
       navigate("/users-list");
     }
 
@@ -37,9 +42,11 @@ const NewUser = () => {
     <div className='section-base'>
         <div className='form-base mx-auto my-12 self-center'>
 
-          <h3 className='mt-3 mb-6 font-bold text-lg text-center'>Nuevo Usuario</h3>
+          <h3 className='mt-3 mb-6 font-bold text-lg text-center'>Editar Usuario</h3>
 
           <form onSubmit={hanldeSubmit}>
+
+                <input type="hidden" value={usuario?.id}/>
 
               <label>
                   Nombre
@@ -94,7 +101,7 @@ const NewUser = () => {
                   value="Registrar"
                   className='button-base w-full'
                   >
-                    <FiSave className='icon-base mx-auto'/>
+                    <HiPencilAlt className='icon-base mx-auto'/>
               </button>
 
           </form>
@@ -103,4 +110,5 @@ const NewUser = () => {
   )
 }
 
-export default NewUser
+
+export default EditUSer
